@@ -1,25 +1,16 @@
 pub fn verse(n: i32) -> String {
-    let mut ret = "".to_string();
-    if n == 0 {
-        ret = format!("No more bottles of beer on the wall, no more bottles of beer.
-Go to the store and buy some more, 99 bottles of beer on the wall.");
-    } else if n == 1 {
-        ret = format!("1 bottle of beer on the wall, 1 bottle of beer.
-Take it down and pass it around, no more bottles of beer on the wall.\n");
-    } else if n == 2 {
-        ret = format!("{} bottles of beer on the wall, {} bottles of beer.
-Take one down and pass it around, {} bottle of beer on the wall.\n", n, n, n-1);
-    } else if n > 1 {
-        ret = format!("{} bottles of beer on the wall, {} bottles of beer.
-Take one down and pass it around, {} bottles of beer on the wall.\n", n, n, n-1);
+    match n {
+        2 => "2 bottles of beer on the wall, 2 bottles of beer.\nTake one down and pass it around, 1 bottle of beer on the wall.\n".to_string(),
+        1 => "1 bottle of beer on the wall, 1 bottle of beer.\nTake it down and pass it around, no more bottles of beer on the wall.\n".to_string(),
+        0 => "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.\n".to_string(),
+        _ => format!("{0} bottles of beer on the wall, {0} bottles of beer.\nTake one down and pass it around, {1} bottles of beer on the wall.\n", n, n-1)
     }
-    ret
 }
 
 pub fn sing(start: i32, end: i32) -> String {
     let mut ret = "".to_string();
     if start == end {
-        ret = verse(start)
+        ret = verse(start);
     } else {
         ret = verse(end);
         for n in end+1..start+1 {
