@@ -1,2 +1,3 @@
 # exercism
-exercises from https://exercism.io in python, rust, C, haskell, etc.
+exercises from https://exercism.io in rust, python, C, haskell, etc.
+
