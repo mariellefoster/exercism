@@ -1,16 +1,18 @@
+use std::vec::Vec;
+
 pub fn sum_of_multiples(limit: u32, factors: &[u32]) -> u32 {
-    let mut t = factors[0];
-    let final_factors = [u32];
+    let mut vec = vec![];
+
     for f in factors {
-        // push all multiples
-        while t < limit {
-            let is_present = factors.iter().any(|t| t == &x);
-            if !is_present {
-                final_factors.push(t);
-            }
-            t = t + f;
+        let mut m = f;
+        while m < &limit {
+            vec.push(m);
+            let mut m = (m + f);
         }
     }
+    vec.sort_unstable();
+    vec.dedup();
+    vec.into_iter().sum()
     // while factor < limit {
 
     //     let is_present = factors.iter().any(|c| c.position == cell.position);

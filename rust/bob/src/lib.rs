@@ -15,7 +15,7 @@ pub fn reply(message: &str) -> &str {
 
     if yelling {
         if question {
-            return "Calm down, I know what I\'m doing!"
+            return "Calm down, I know what I'm doing!"
         }
         return "Whoa, chill out!"
     } else if question {
@@ -24,24 +24,14 @@ pub fn reply(message: &str) -> &str {
         return "Fine. Be that way!"
     }
     return "Whatever."
-    
-
-    // | message | message[message.len()-1] == "?";
-
-    // let yelling = boolean function
 
     // if question "Sure."
 
     // if yelling in caps "Whoa, chill out!"
 
-
     // if yelling question "Calm down, I know what I'm doing!"
-
 
     // if nothing "Fine. Be that way!"
 
-
     // all else "Whatever."
-
-    // use pattern matching?
 }
