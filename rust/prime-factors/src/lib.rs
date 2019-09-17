@@ -1,5 +1,4 @@
 pub fn factors(n: u64) -> Vec<u64> {
-
     // can you do something like 1...n/2.iter().collect( |s| where n % s == 0 )
     let mut s = n;
     let mut vec = vec![];
