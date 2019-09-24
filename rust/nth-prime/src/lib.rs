@@ -15,8 +15,8 @@ pub fn nth(n: u32) -> u32 {
 }
 
 pub fn is_prime(n: u32) -> bool {
-    let s = (n as f64).sqrt() as u32 + 1;
-    for i in 3..s {
+    let l = (n as f64).sqrt() as u32 + 1;
+    for i in 3..l {
         if n % i == 0 {
             return false;
         }
