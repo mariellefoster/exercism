@@ -1,6 +1,14 @@
+use std::fmt;
+
 pub struct Clock {
     hr: i32,
     min: i32,
+}
+
+impl fmt::Debug for Clock {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "Clock {{ Hours: {}, Minutes: {} }}", self.hr, self.min)
+    }
 }
 
 impl Clock {
@@ -15,4 +23,5 @@ impl Clock {
         let new_min = (minutes + self.min) % 60;
         Clock::new(self.hr, new_min)
     }
+
 }
