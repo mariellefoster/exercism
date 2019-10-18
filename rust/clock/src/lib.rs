@@ -1,20 +1,9 @@
 use std::fmt;
 
+#[derive(Debug, PartialEq)]
 pub struct Clock {
     hr: i32,
     min: i32,
-}
-
-impl fmt::Debug for Clock {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{:02}:{:02}", self.hr, self.min)
-    }
-}
-
-impl PartialEq for Clock {
-    fn eq(&self, other: &Self) -> bool {
-        self.hr == other.hr && self.min == other.min
-    }
 }
 
 impl fmt::Display for Clock {
