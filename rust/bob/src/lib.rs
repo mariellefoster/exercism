@@ -30,14 +30,4 @@ pub fn reply(message: &str) -> &str {
         return "Sure."
     }
     return "Whatever."
-
-    // if question "Sure."
-
-    // if yelling in caps "Whoa, chill out!"
-
-    // if yelling question "Calm down, I know what I'm doing!"
-
-    // if nothing "Fine. Be that way!"
-
-    // all else "Whatever."
 }
