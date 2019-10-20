@@ -163,7 +163,6 @@ fn test_add_more_than_two_hours_with_carry() {
 }
 
 #[test]
-#[ignore]
 fn test_add_across_midnight() {
     let clock = Clock::new(23, 59).add_minutes(2);
     assert_eq!(clock.to_string(), "00:01");
@@ -310,7 +309,6 @@ fn test_compare_clocks_with_negative_minute() {
 }
 
 #[test]
-#[ignore]
 fn test_compare_clocks_with_negative_minute_that_wraps() {
     assert_eq!(Clock::new(4, 10), Clock::new(5, -1490))
 }
