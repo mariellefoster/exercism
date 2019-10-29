@@ -1,14 +1,32 @@
 pub fn brackets_are_balanced(string: &str) -> bool {
-    let mut list characters;
+    let mut characters = Vec::new();
 
-    match character {
-        '{' => expr, //add to list
-        '[' => expr, //add to list
-        '(' => expr, //add to list
-        '}' => expr, //pop from list
-        ']' => expr, //pop from list
-        ')' => expr, //pop from list
-        _ => expr,
+    for character in string.chars() {
+        match character {
+            '{' => characters.push(character), //add to list
+            '[' => characters.push(character), //add to list
+            '(' => characters.push(character), //add to list
+            _ => continue,
+        }
+
+        if character == '}' {
+            let popped_char = characters.pop();
+            if popped_char != Some('{') {
+                break;
+            }
+        } //pop from list
+        else if character == ']' {
+            let popped_char = characters.pop();
+            if popped_char != Some('[') {
+                break;
+            }
+        }
+        else if character == ')' {
+            let popped_char = characters.pop();
+            if popped_char != Some('(') {
+                break;
+            }
+        }
     }
 
     if characters.len() != 0 {
