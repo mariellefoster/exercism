@@ -11,10 +11,12 @@ pub fn encode(plain: &str) -> String {
             continue;
         }
         let c = AsciiChar::from_ascii(character).as_byte();
-        match c {
-            [97:123] => abs(c - 122),
-            [65:91] => expr,
+        let d = match c {
+            [97:123] => (abs(c - 122) + 97),
+            [65:91] => (abs(c - 90) + 97),
+            _ => panic!("{:?}", );
         }
+        result.push()
     }
     
 
