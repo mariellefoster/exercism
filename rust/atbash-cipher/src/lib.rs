@@ -12,11 +12,12 @@ pub fn encode(plain: &str) -> String {
         }
         let c = AsciiChar::from_ascii(character).as_byte();
         let d = match c {
-            [97:123] => (abs(c - 122) + 97),
-            [65:91] => (abs(c - 90) + 97),
+            97 ... 123 => (abs(c - 122) + 97),
+            65 ... 91  => (abs(c - 90) + 97),
             _ => panic!("{:?}", );
         }
-        result.push()
+        let f = d as char;
+        result.push(f)
     }
     
 
