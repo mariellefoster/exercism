@@ -1,25 +1,26 @@
+
 /// "Encipher" with the Atbash cipher.
 pub fn encode(plain: &str) -> String {
     // read in string as characters
     // create new string to return
-    result = Vec::new();
+    let mut result = String::from("");;
     // convert to lowercase
     // strip whitespace and punctuation
-    let clean_plain = plain.split_whitespace().collect();
+    let clean_plain: String = plain.split_whitespace().collect();
     for character in clean_plain.chars() {
         if !character.is_ascii() || character.is_ascii_punctuation() {
             continue;
         }
-        let c = AsciiChar::from_ascii(character).as_byte();
+        let c = character as i16;
         let d = match c {
-            97 ... 123 => (abs(c - 122) + 97),
-            65 ... 91  => (abs(c - 90) + 97),
-            _ => panic!("{:?}", );
-        }
-        let f = d as char;
-        result.push(f)
+            97 ... 123 => ((c - 122).abs() as u8 + 97) as char,
+            65 ... 91  => ((c - 90).abs() as u8 + 97) as char,
+            _ => continue,
+        };
+        println!("{:?}", d);
+        result.push(d);
     }
-    
+    result
 
     // loop through characters, converting to ascii
     // if it's a number, just keep the number
@@ -32,7 +33,7 @@ pub fn encode(plain: &str) -> String {
     // add to string
     // create chunker function which inserts spaces every five
     // chars
-    unimplemented!("Encoding of {:?} in Atbash cipher.", plain);
+    // unimplemented!("Encoding of {:?} in Atbash cipher.", plain);
 }
 
 /// "Decipher" with the Atbash cipher.
