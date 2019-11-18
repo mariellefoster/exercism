@@ -10,10 +10,10 @@ pub fn brackets_are_balanced(string: &str) -> bool {
             _ => (),
         }
 
-        let popped_char = characters.pop();
-        if character.is_alpha() {
-            continue
+        if !is_back_bracket(character) {
+            continue;
         } else {
+            let popped_char = characters.pop();
             match (popped_char, character) {
                 (Some('{'), '}') => (),
                 (Some('['), ']') => (),
@@ -21,31 +21,21 @@ pub fn brackets_are_balanced(string: &str) -> bool {
                 (_, _) => characters.push(character)
             };
         }
-        
-
-        // if character == '}' {
-        //     let popped_char = characters.pop();
-        //     if popped_char != Some('{') {
-        //         characters.push(character);
-        //     }
-        // } //pop from list
-        // else if character == ']' {
-        //     let popped_char = characters.pop();
-        //     if popped_char != Some('[') {
-        //         characters.push(character);
-        //     }
-        // }
-        // else if character == ')' {
-        //     let popped_char = characters.pop();
-        //     if popped_char != Some('(') {
-        //         characters.push(character);
-        //     }
-        // }
     }
 
     if characters.len() != 0 {
         false
     } else {
         true
+    }
+}
+
+pub fn is_back_bracket(b: char) -> bool {
+    // turn this into "member of list?"
+    match b {
+        '}' => true,
+        ')' => true,
+        ']' => true,
+        _ => false
     }
 }
