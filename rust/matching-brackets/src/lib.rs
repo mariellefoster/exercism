@@ -10,24 +10,37 @@ pub fn brackets_are_balanced(string: &str) -> bool {
             _ => (),
         }
 
-        if character == '}' {
-            let popped_char = characters.pop();
-            if popped_char != Some('{') {
-                characters.push(character);
-            }
-        } //pop from list
-        else if character == ']' {
-            let popped_char = characters.pop();
-            if popped_char != Some('[') {
-                characters.push(character);
-            }
+        let popped_char = characters.pop();
+        if character.is_alpha() {
+            continue
+        } else {
+            match (popped_char, character) {
+                (Some('{'), '}') => (),
+                (Some('['), ']') => (),
+                (Some('('), ')') => (),
+                (_, _) => characters.push(character)
+            };
         }
-        else if character == ')' {
-            let popped_char = characters.pop();
-            if popped_char != Some('(') {
-                characters.push(character);
-            }
-        }
+        
+
+        // if character == '}' {
+        //     let popped_char = characters.pop();
+        //     if popped_char != Some('{') {
+        //         characters.push(character);
+        //     }
+        // } //pop from list
+        // else if character == ']' {
+        //     let popped_char = characters.pop();
+        //     if popped_char != Some('[') {
+        //         characters.push(character);
+        //     }
+        // }
+        // else if character == ')' {
+        //     let popped_char = characters.pop();
+        //     if popped_char != Some('(') {
+        //         characters.push(character);
+        //     }
+        // }
     }
 
     if characters.len() != 0 {
