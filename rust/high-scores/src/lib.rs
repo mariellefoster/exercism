@@ -1,12 +1,11 @@
 #[derive(Debug)]
-pub struct HighScores;
+pub struct HighScores<'a> {
+    score_list: &'a [u32],
+}
 
-impl HighScores {
-    pub fn new(scores: &[u32]) -> Self {
-        unimplemented!(
-            "Construct a HighScores struct, given the scores: {:?}",
-            scores
-        )
+impl HighScores<'a> {
+    pub fn new(scores: &'a[u32]) -> Self {
+        HighScores { score_list : scores}
     }
 
     pub fn scores(&self) -> &[u32] {
