@@ -4,8 +4,8 @@ pub struct HighScores<'a> {
 }
 
 impl HighScores<'a> {
-    pub fn new(scores: &'a[u32]) -> Self {
-        HighScores { score_list : scores}
+    pub fn new(scores: &'a[u32]) -> 'a Self {
+        HighScores { score_list<'a> : scores}
     }
 
     pub fn scores(&self) -> &[u32] {
