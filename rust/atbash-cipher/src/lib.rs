@@ -1,8 +1,8 @@
 /// "Helper" with the Atbash cipher.
 pub fn helper(c : i16) -> char {
     match c {
-        97 ... 123 => ((c - 122).abs() as u8 + 97) as char,
-        65 ... 91  => ((c - 90).abs() as u8 + 97) as char,
+        b'a' ... b'z' => ((c - 122).abs() as u8 + 97) as char,
+        b'A' ... b'Z'  => ((c - 90).abs() as u8 + 97) as char,
         _ => (c as u8) as char,
     }
 }
