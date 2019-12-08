@@ -1,5 +1,6 @@
 /// "Helper" with the Atbash cipher.
 pub fn helper(c : i16) -> char {
+    // let c = c1 as i16;
     match c {
         b'a' ... b'z' => ((c - 122).abs() as u8 + 97) as char,
         b'A' ... b'Z'  => ((c - 90).abs() as u8 + 97) as char,
@@ -12,9 +13,9 @@ pub fn encode(plain: &str) -> String {
     let mut result = String::from("");
     let mut f = 0;
 
-    plain.iter().filter(|helper(c as i16)| c.is_ascii()
+    plain.chars().filter(|helper(c)| c.is_ascii()
                         || !c.is_ascii_punctuation()
-                        || !c.is_ascii_whitespace())
+                        || !c.is_ascii_whitespace()).collect()
 
     // for character in plain.chars() {
     //     if !character.is_ascii() 
@@ -30,7 +31,7 @@ pub fn encode(plain: &str) -> String {
     //         result.push(' ');
     //     }
     // }
-    result.trim_end().to_string()
+    // result.trim_end().to_string()
 }
 
 /// "Decipher" with the Atbash cipher.
