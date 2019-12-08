@@ -11,20 +11,25 @@ pub fn helper(c : i16) -> char {
 pub fn encode(plain: &str) -> String {
     let mut result = String::from("");
     let mut f = 0;
-    for character in plain.chars() {
-        if !character.is_ascii() 
-                || character.is_ascii_punctuation()
-                || character.is_ascii_whitespace() {
-            continue;
-        }
-        let c = character as i16;
-        let d = helper(c);
-        f += 1;
-        result.push(d);
-        if f % 5 == 0 {
-            result.push(' ');
-        }
-    }
+
+    plain.iter().filter(|helper(c as i16)| c.is_ascii()
+                        || !c.is_ascii_punctuation()
+                        || !c.is_ascii_whitespace())
+
+    // for character in plain.chars() {
+    //     if !character.is_ascii() 
+    //             || character.is_ascii_punctuation()
+    //             || character.is_ascii_whitespace() {
+    //         continue;
+    //     }
+    //     let c = character as i16;
+    //     let d = helper(c);
+    //     f += 1;
+    //     result.push(d);
+    //     if f % 5 == 0 {
+    //         result.push(' ');
+    //     }
+    // }
     result.trim_end().to_string()
 }
 
