@@ -9,18 +9,19 @@ impl<'a> HighScores<'a> {
     }
 
     pub fn scores(&self) -> &[u32] {
-        unimplemented!("Return all the scores as a slice")
+        self.scores
     }
 
     pub fn latest(&self) -> Option<u32> {
-        unimplemented!("Return the latest (last) score")
+        self.scores.last().cloned()
     }
 
     pub fn personal_best(&self) -> Option<u32> {
-        unimplemented!("Return the highest score")
+        self.scores.iter().max().cloned()
     }
 
     pub fn personal_top_three(&self) -> Vec<u32> {
-        unimplemented!("Return 3 highest scores")
+        let mut temp_scores = self.scores.to_vec().sort();
+        temp_scores.rev().take(3).collect::<Vec<u32>>()
     }
 }
