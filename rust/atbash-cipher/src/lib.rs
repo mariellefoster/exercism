@@ -8,6 +8,7 @@ pub fn helper(c : i16) -> char {
     }
 }
 
+
 /// "Encipher" with the Atbash cipher.
 pub fn encode(plain: &str) -> String {
     let mut result = String::from("");
