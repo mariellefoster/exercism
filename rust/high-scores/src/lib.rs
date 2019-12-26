@@ -22,6 +22,6 @@ impl<'a> HighScores<'a> {
 
     pub fn personal_top_three(&self) -> Vec<u32> {
         let mut temp_scores = self.scores.to_vec().sort();
-        temp_scores.rev().take(3).collect::<Vec<u32>>()
+        temp_scores.cloned().rev().take(3).collect::<Vec<u32>>()
     }
 }
