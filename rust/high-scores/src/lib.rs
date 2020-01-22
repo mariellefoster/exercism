@@ -21,8 +21,9 @@ impl<'a> HighScores<'a> {
     }
 
     pub fn personal_top_three(&self) -> Vec<u32> {
-        // fix this, it needs an iterator damnit
-        let mut temp_scores = self.scores.to_vec().sort();
-        temp_scores.cloned().rev().take(3).collect::<Vec<u32>>()
+        let mut score_cp = self.scores.to_vec();
+
+        score_cp.sort();
+        score_cp.into_iter().rev().take(3).collect()
     }
 }
