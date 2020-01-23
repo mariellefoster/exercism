@@ -1,13 +1,13 @@
 /// "Helper" with the Atbash cipher.
-pub fn helper(c : i16) -> char {
+pub fn helper(c : i16) -> Option<char> {
     // let c = c1 as i16;
     match c {
-        b'a' ... b'z' => ((c - 122).abs() as u8 + 97) as char,
-        b'A' ... b'Z'  => ((c - 90).abs() as u8 + 97) as char,
-        _ => (c as u8) as char,
+        '0'...'9' => Some(c),
+        b'a' ... b'z' => Some((b'a' + b'z' - c as u8) as char),
+        b'A' ... b'Z'  => Some((b'a' + b'Z' - c as u8) as char),
+        _ => None,
     }
 }
-
 
 /// "Encipher" with the Atbash cipher.
 pub fn encode(plain: &str) -> String {
