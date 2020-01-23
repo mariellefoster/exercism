@@ -11,17 +11,15 @@ pub fn helper(c : char) -> Option<char> {
 
 /// "Encipher" with the Atbash cipher.
 pub fn encode(plain: &str) -> String {
-    let mut result = String::from("");
-    let mut f = 0;
-
     plain.chars()
-         .filter_map(helper)
+         .filter_map(helper).collect()
 }
 
 /// "Decipher" with the Atbash cipher.
 pub fn decode(cipher: &str) -> String {
     cipher.chars()
-        .filter_map(helper).collect::<Vec<_>>()
+        .filter_map(helper)
+        .collect::<Vec<_>>()
         .chunks(5).collect::<Vec<_>>()
         .join(&' ').iter().cloned().collect()
 }
