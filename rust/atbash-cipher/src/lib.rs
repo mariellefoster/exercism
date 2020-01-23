@@ -9,14 +9,14 @@ pub fn helper(c : char) -> Option<char> {
     }
 }
 
-/// "Encipher" with the Atbash cipher.
-pub fn encode(plain: &str) -> String {
+/// "Decipher" with the Atbash cipher.
+pub fn decode(plain: &str) -> String {
     plain.chars()
          .filter_map(helper).collect()
 }
 
-/// "Decipher" with the Atbash cipher.
-pub fn decode(cipher: &str) -> String {
+/// "Encipher" with the Atbash cipher.
+pub fn encode(cipher: &str) -> String {
     cipher.chars()
         .filter_map(helper)
         .collect::<Vec<_>>()
