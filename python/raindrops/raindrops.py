@@ -1,12 +1,10 @@
 def convert(number):
-    final_str = ""
-    if number % 3 == 0:
-        final_str += "Pling"
-    if number % 5 == 0:
-        final_str += "Plang"
-    if number % 7 == 0:
-        final_str += "Plong"
-    if final_str == "":
-        final_str += str(number)
-    return final_str
+    sounds = {
+        3: "Pling",
+        5: "Plang",
+        7: "Plong",
+    }
 
+    return ("".join([sound for fact, sound in sounds.items() if number % fact == 0 ])
+            or str(number)
+    )
