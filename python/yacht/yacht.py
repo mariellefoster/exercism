@@ -23,17 +23,23 @@ FIVES = 5
 SIXES = 6
 FULL_HOUSE = None
 FOUR_OF_A_KIND = None
-LITTLE_STRAIGHT = None
-BIG_STRAIGHT = None
+LITTLE_STRAIGHT = "ls"
+BIG_STRAIGHT = "bs"
 CHOICE = None
 
 
 def score(dice, category):
     dice = sorted(dice)
     score = 0
-    for d in dice:
-        if d == category:
-            score += d
-        else:
-            
+    if isinstance(category, int):
+        for d in dice:
+            if d == category:
+                score += d
+            else:
+                pass
+    elif category in [LITTLE_STRAIGHT, BIG_STRAIGHT]:
+        dice = sorted(set(dice))
+        if len(dice) == 5:
+            return 30
+
     return score
