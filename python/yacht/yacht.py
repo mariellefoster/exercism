@@ -14,6 +14,7 @@ You can learn more here: https://en.wikipedia.org/wiki/Enumerated_type
 
 # Score categories.
 # Change the values as you see fit.
+# TODO: chance these to lambdas
 YACHT = 'y'
 ONES = 1
 TWOS = 2
