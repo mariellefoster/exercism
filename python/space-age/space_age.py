@@ -27,14 +27,3 @@ class SpaceAge:
 
     def on_neptune(self):
         return round(self.seconds / (self.earth * 164.79132 ), 2)
-
-       # - Jupiter: orbital period 11.862615 Earth years
-       # - Saturn: orbital period 29.447498 Earth years
-       # - Uranus: orbital period 84.016846 Earth years
-       # - Neptune: orbital period 164.79132 Earth years
-
-
-# load all planets
-
-
-# do a seconds to years calculation
