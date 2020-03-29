@@ -18,7 +18,6 @@ class Rational:
         self._reduce_by_gcd()
         return self
 
-
     def __sub__(self, other):
         pass
 
