@@ -3,8 +3,8 @@ from __future__ import division
 
 class Rational:
     def __init__(self, n, d):
-        self.n = None
-        self.d = None
+        self.n = n
+        self.d = d
 
     def __eq__(self, other):
         return self.n == other.n and self.d == other.d
@@ -13,13 +13,19 @@ class Rational:
         return '{}/{}'.format(self.n, self.d)
 
     def __add__(self, other):
+        # (a1 * b2 + a2 * b1) / (b1 * b2)
         self.n = (self.n * other.d + other.n * self.d)
         self.d = (self.d * other.d)
         self._reduce_by_gcd()
         return self
 
     def __sub__(self, other):
-        pass
+        # a1/b1 - a2/b2
+        # (a1 * b2 - a2 * b1) / (b1 * b2)
+        self.n = (self.n * other.d - other.n * self.d)
+        self.d = (self.d * other.d)
+        self._reduce_by_gcd()
+        return self
 
     def __mul__(self, other):
         pass
@@ -38,6 +44,7 @@ class Rational:
         pass
 
     def _reduce_by_gcd(self):
+        gcd = 1
         if self.n > self.d:
             gcd = self._find_gcd(self.n, self.d)
         elif self.n > self.d:
