@@ -16,21 +16,25 @@ class Rational:
         # (a1 * b2 + a2 * b1) / (b1 * b2)
         self.n = (self.n * other.d + other.n * self.d)
         self.d = (self.d * other.d)
-        self._reduce_by_gcd()
+        # self._reduce_by_gcd()
         return self
 
     def __sub__(self, other):
         # a1/b1 - a2/b2
         # (a1 * b2 - a2 * b1) / (b1 * b2)
-        self.n = (self.n * other.d - other.n * self.d)
-        self.d = (self.d * other.d)
-        self._reduce_by_gcd()
-        return self
+        n = (self.n * other.d - other.n * self.d)
+        d = (self.d * other.d)
+        # self._reduce_by_gcd()
+        return Rational(n, d)
 
     def __mul__(self, other):
-        pass
+        self.n = (self.n * other.n)
+        self.d = (self.d * other.d)
+        # self._reduce_by_gcd()
+        return self
 
     def __truediv__(self, other):
+        # (a1 * b2) / (a2 * b1)
         pass
 
     def __abs__(self):
