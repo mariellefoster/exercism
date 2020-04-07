@@ -20,7 +20,7 @@ class Rational:
         # (a1 * b2 + a2 * b1) / (b1 * b2)
         self.n = (self.n * other.d + other.n * self.d)
         self.d = (self.d * other.d)
-        # self._reduce_by_gcd()
+        self._reduce_by_gcd()
         return self
 
     def __sub__(self, other):
