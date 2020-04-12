@@ -60,9 +60,11 @@ class Rational:
     def __pow__(self, power):
         # r^n = (a^n)/(b^n)
         # `r^n = (b^m)/(a^m)`, where `m = |n|`
+        pass
 
     def __rpow__(self, base):
         # (a^x)/(b^x)
+        pass
 
     def _fix_sign(self):
         self.d = abs(self.d)
