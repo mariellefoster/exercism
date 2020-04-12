@@ -52,24 +52,24 @@ class Rational:
         return self
 
     def __abs__(self):
-        pass
-
+        self.n = abs(self.n)
+        self.d = abs(self.d)
+        self._reduce_by_gcd()
+        return self
 
     def __pow__(self, power):
-        pass
+        # r^n = (a^n)/(b^n)
+        # `r^n = (b^m)/(a^m)`, where `m = |n|`
 
     def __rpow__(self, base):
-        pass
+        # (a^x)/(b^x)
 
     def _fix_sign(self):
         self.d = abs(self.d)
         self.n *= -1
 
     def _reduce_by_gcd(self):
-        print ("pre gcd: ", self)
         gcd = 1
-        # if self.n == 0 or self.d == 0:
-        #     return 1
         if self.n > self.d:
             gcd = self._find_gcd(self.n, self.d)
         elif self.n < self.d:
