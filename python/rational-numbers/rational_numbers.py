@@ -44,8 +44,12 @@ class Rational:
         return self
 
     def __truediv__(self, other):
+        # a1/b1 / a2/b2
         # (a1 * b2) / (a2 * b1)
-        pass
+        self.n = (self.n * other.d)
+        self.d = (self.d * other.n)
+        self._reduce_by_gcd()
+        return self
 
     def __abs__(self):
         pass
