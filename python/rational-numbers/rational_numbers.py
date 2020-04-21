@@ -48,6 +48,8 @@ class Rational:
         # (a1 * b2) / (a2 * b1)
         self.n = (self.n * other.d)
         self.d = (self.d * other.n)
+        if self.d < 0:
+            self._fix_sign()
         self._reduce_by_gcd()
         return self
 
@@ -60,8 +62,12 @@ class Rational:
     def __pow__(self, power):
         # r^n = (a^n)/(b^n)
         # `r^n = (b^m)/(a^m)`, where `m = |n|`
-        self.n = self.n ** power
-        self.d = self.d ** power
+        if power > 0:
+            self.n = self.n ** power
+            self.d = self.d ** power
+        else:
+            self.n = self.d ** abs(power)
+            self.d = self.n ** abs(power)
         self._reduce_by_gcd()
         return self
 
