@@ -73,7 +73,13 @@ class Rational:
 
     def __rpow__(self, base):
         # (a^x)/(b^x)
-        pass
+        if base > 0:
+            ans_n = self.n ** base
+            ans_d = self.d ** base
+        # else:
+        #     self.n = self.d ** abs(base)
+        #     self.d = self.n ** abs(base)
+        return round(ans_n/ans_d, 8)
 
     def _fix_sign(self):
         self.d = abs(self.d)
