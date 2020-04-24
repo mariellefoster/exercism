@@ -1,5 +1,5 @@
 from __future__ import division
-
+import math
 
 class Rational:
     def __init__(self, n, d):
@@ -72,14 +72,10 @@ class Rational:
         return self
 
     def __rpow__(self, base):
-        # (a^x)/(b^x)
-        if base > 0:
-            ans_n = self.n ** base
-            ans_d = self.d ** base
-        # else:
-        #     self.n = self.d ** abs(base)
-        #     self.d = self.n ** abs(base)
-        return round(ans_n/ans_d, 8)
+        print("hit this one")
+        ans = base ** (self.n)
+        ans = ans ** (1/self.d)
+        return round(ans, 8)
 
     def _fix_sign(self):
         self.d = abs(self.d)
