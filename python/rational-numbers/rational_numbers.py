@@ -8,7 +8,6 @@ class Rational:
         self._reduce_by_gcd()
         if self.d < 0:
             self._fix_sign()
-        print("final initialization: ", self)
 
     def __eq__(self, other):
         return self.n == other.n and self.d == other.d
@@ -18,63 +17,33 @@ class Rational:
 
     def __add__(self, other):
         # (a1 * b2 + a2 * b1) / (b1 * b2)
-        self.n = (self.n * other.d + other.n * self.d)
-        self.d = (self.d * other.d)
-        self._reduce_by_gcd()
-        return self
+        return Rational(self.n * other.d + other.n * self.d,
+                        self.d * other.d)
 
     def __sub__(self, other):
-        # a1/b1 - a2/b2
         # (a1 * b2 - a2 * b1) / (b1 * b2)
-        print("before: ", self)
-        self.n = (self.n * other.d - other.n * self.d)
-        self.d = (self.d * other.d)
-        print("after: ", self)
-        self._reduce_by_gcd()
-        print("final: ", self)
-        if self.d < 0:
-            self._fix_sign()
-        print("post minus: ", self)
-        return self #Rational(n, d)
+        return Rational(self.n * other.d - other.n * self.d,
+                        self.d * other.d)
 
     def __mul__(self, other):
-        self.n = (self.n * other.n)
-        self.d = (self.d * other.d)
-        self._reduce_by_gcd()
-        return self
+        return Rational(self.n * other.n,
+                        self.d * other.d)
 
     def __truediv__(self, other):
-        # a1/b1 / a2/b2
         # (a1 * b2) / (a2 * b1)
-        self.n = (self.n * other.d)
-        self.d = (self.d * other.n)
-        if self.d < 0:
-            self._fix_sign()
-        self._reduce_by_gcd()
-        return self
+        return Rational(self.n * other.d,
+                        self.d * other.n)
 
     def __abs__(self):
-        self.n = abs(self.n)
-        self.d = abs(self.d)
-        self._reduce_by_gcd()
-        return self
+        return Rational(abs(self.n), abs(self.d))
 
     def __pow__(self, power):
-        # r^n = (a^n)/(b^n)
         # `r^n = (b^m)/(a^m)`, where `m = |n|`
-        if power > 0:
-            self.n = self.n ** power
-            self.d = self.d ** power
-        else:
-            self.n = self.d ** abs(power)
-            self.d = self.n ** abs(power)
-        self._reduce_by_gcd()
-        return self
+        return Rational(self.n ** abs(power),
+                        self.d ** abs(power))
 
     def __rpow__(self, base):
-        print("hit this one")
-        ans = base ** (self.n)
-        ans = ans ** (1/self.d)
+        ans = (base ** (self.n)) ** (1/self.d)
         return round(ans, 8)
 
     def _fix_sign(self):
@@ -92,16 +61,11 @@ class Rational:
             return
         self.n = int(self.n / gcd)
         self.d = int(self.d / gcd)
-        print ("post gcd: ", self)
 
     def _find_gcd(self, a, b):
-        print("a, b", a, b)
         if a == 0:
             return b
         if a == b or b == 0:
             return a
         r = int(a/b)*b - a
         return abs(self._find_gcd(b, r))
-
-
-
