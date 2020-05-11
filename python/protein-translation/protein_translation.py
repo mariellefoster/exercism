@@ -4,7 +4,7 @@
 # UGG Tryptophan
 # UAA, UAG, UGA   STOP
 
-Codon = {
+codon = {
     "AUG" : "Methionine",
     "UUU" : "Phenylalanine",
     "UUC" : "Phenylalanine",
@@ -25,4 +25,15 @@ Codon = {
 }
 
 def proteins(strand):
-    []
+    transl = []
+    for i in range(int(len(strand)/3)):
+        q = i*3
+        c = strand[q:q+3]
+        if c not in codon:
+            raise Exception("String poorly formed")
+        if codon[c] == "STOP":
+            return transl
+        transl.append(codon[c])
+    return transl
+
+    # [ for i in len(strand)/3]
