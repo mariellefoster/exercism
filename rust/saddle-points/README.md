@@ -5,7 +5,7 @@ Detect saddle points in a matrix.
 So say you have a matrix like so:
 
 ```text
-    1  2  3
+    0  1  2
   |---------
 1 | 9  8  7
 2 | 5  3  2     <--- saddle point at column 1, row 2, with value 5
