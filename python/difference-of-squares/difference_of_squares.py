@@ -1,9 +1,9 @@
 def square_of_sum(number):
-    pass
+    return (number * (number + 1)/2)**2
 
 
 def sum_of_squares(number):
-    pass
+    
 
 
 def difference_of_squares(number):
