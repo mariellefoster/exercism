@@ -1,3 +1,5 @@
+import re
+
 class SgfTree:
     def __init__(self, properties=None, children=None):
         self.properties = properties or {}
@@ -26,4 +28,9 @@ class SgfTree:
 
 
 def parse(input_string):
-    pass
+    tree = SgfTree()
+
+    inputs = input_string[2:-1].split(';')
+
+    for input in inputs:
+        pass
