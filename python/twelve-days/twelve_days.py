@@ -15,10 +15,12 @@ DAYS = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eigh
         "tenth", "eleventh", "twelfth"]
 
 def recite(start_verse, end_verse):
-    end_verse, start_verse = end_verse - 1, start_verse - 1
-    starting_string = "On the %s day of Christmas my true love gave to me: " % DAYS[start_verse]
-    if start_verse == end_verse:
-        start_verse = 0
-        GIFTS[11] = "and " + GIFTS[11]
-    print ([starting_string] + GIFTS[start_verse:end_verse])
-    return [starting_string] + GIFTS[start_verse:end_verse]
+    final_list = []
+    for day in range(start_verse, end_verse+1):
+        gift_list = GIFTS[-(day):]
+        gift_verse = (f"On the {DAYS[day-1]} day of Christmas my true love gave to me: ")
+        if(day > 1):
+            gift_list[-1] = "and " + gift_list[-1]
+        gift_verse += " ".join(gift_list)
+        final_list.append(gift_verse)
+    return final_list
