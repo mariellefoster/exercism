@@ -3,7 +3,11 @@
 
 bool is_armstrong_number(int candidate)
 {
-    if ( candidate == 0)
+    if ( candidate == 0 )
+    {
+        return true;
+    }
+    if ( candidate >=0 && candidate <=9 )
     {
         return true;
     }
